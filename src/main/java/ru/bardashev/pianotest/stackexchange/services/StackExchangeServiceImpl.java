@@ -1,4 +1,4 @@
-package ru.bardashev.pianotest.stackexchange;
+package ru.bardashev.pianotest.stackexchange.services;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -31,8 +31,10 @@ public class StackExchangeServiceImpl implements StackExchangeService {
 	}
 
 	protected WebTarget MapParameters(WebTarget webTarget, SearchRequest request) {
-		return webTarget.queryParam("site", SEARCH_SITE).queryParam("intitle",
-				request.getIntitle());
+		return webTarget.queryParam("site", SEARCH_SITE)
+				.queryParam("intitle", request.getIntitle())
+				.queryParam("page", request.getPage())
+				.queryParam("pageSize", request.getPageSize());
 	}
 
 }

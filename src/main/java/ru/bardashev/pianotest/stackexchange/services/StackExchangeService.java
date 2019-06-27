@@ -1,4 +1,4 @@
-package ru.bardashev.pianotest.stackexchange;
+package ru.bardashev.pianotest.stackexchange.services;
 
 import ru.bardashev.pianotest.stackexchange.models.SearchRequest;
 import ru.bardashev.pianotest.stackexchange.models.SearchResult;

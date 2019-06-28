@@ -20,4 +20,7 @@ public class SearchResult {
 
 	@JsonProperty("quota_remaining")
 	private int quotaRemaining;
+	
+	@JsonProperty("total")
+	private int total;	
 }

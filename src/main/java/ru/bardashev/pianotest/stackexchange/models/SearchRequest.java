@@ -6,7 +6,7 @@ import lombok.Data;
 public class SearchRequest {
 
 	private String intitle;
-
+	
 	private int page;
 
 	private int pageSize;

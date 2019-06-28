@@ -1,5 +1,6 @@
 package ru.bardashev.pianotest.controllers;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,6 +10,7 @@ import ru.bardashev.pianotest.stackexchange.models.SearchResult;
 import ru.bardashev.pianotest.stackexchange.services.StackExchangeService;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("stackexchange")
 public class StackExchangeController {
 

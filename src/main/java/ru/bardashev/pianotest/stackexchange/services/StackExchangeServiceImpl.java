@@ -19,7 +19,10 @@ public class StackExchangeServiceImpl implements StackExchangeService {
 
 	private final String BASE_URL = "http://api.stackexchange.com/2.2/search";
 	private final String SEARCH_SITE = "stackoverflow";
-
+	private final String DEFAULT_SORT = "relevance";
+	private final String DEFAULT_SORT_DIR = "desc";
+	private final String FILTER_OPTIONS = "!9Z(-x-Q)8";
+	
 	@Override
 	public SearchResult Search(SearchRequest request) {
 		Client client = ClientBuilder.newClient(
@@ -33,6 +36,9 @@ public class StackExchangeServiceImpl implements StackExchangeService {
 	protected WebTarget MapParameters(WebTarget webTarget, SearchRequest request) {
 		return webTarget.queryParam("site", SEARCH_SITE)
 				.queryParam("intitle", request.getIntitle())
+				.queryParam("sort", DEFAULT_SORT)
+				.queryParam("order", DEFAULT_SORT_DIR)
+				.queryParam("filter", FILTER_OPTIONS)
 				.queryParam("page", request.getPage())
 				.queryParam("pageSize", request.getPageSize());
 	}

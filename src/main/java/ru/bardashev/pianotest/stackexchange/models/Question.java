@@ -1,12 +1,14 @@
 package ru.bardashev.pianotest.stackexchange.models;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import lombok.Data;
+import ru.bardashev.pianotest.serializers.JsonUnixEpochDeserializer;
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -28,19 +30,23 @@ public class Question {
 	private int score;
 
 	@JsonProperty("last_activity_date")
-	private Date lastActivityDate;
+	@JsonDeserialize(using = JsonUnixEpochDeserializer.class) 
+	private LocalDateTime lastActivityDate;
 
 	@JsonProperty("creation_date")
-	private Date creationDate;
+	@JsonDeserialize(using = JsonUnixEpochDeserializer.class)
+	private LocalDateTime creationDate;
 
 	@JsonProperty("last_edit_date")
-	private Date lastEditDate;
+	@JsonDeserialize(using = JsonUnixEpochDeserializer.class)
+	private LocalDateTime lastEditDate;
 
 	@JsonProperty("question_id")
 	private int questionId;
 
 	@JsonProperty("protected_date")
-	private Date protectedDate;
+	@JsonDeserialize(using = JsonUnixEpochDeserializer.class)
+	private LocalDateTime protectedDate;
 
 	@JsonProperty("accepted_answer_id")
 	private int acceptedAnswerId;

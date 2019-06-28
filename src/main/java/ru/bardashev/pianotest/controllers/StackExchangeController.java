@@ -10,7 +10,7 @@ import ru.bardashev.pianotest.stackexchange.models.SearchResult;
 import ru.bardashev.pianotest.stackexchange.services.StackExchangeService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = {"http://localhost:3000", "http://p-ui.petunia18.ru"})
 @RequestMapping("stackexchange")
 public class StackExchangeController {
 

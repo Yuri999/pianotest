@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
+import java.time.OffsetDateTime;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -22,7 +22,7 @@ public class JsonUnixEpochDeserializer extends StdDeserializer<LocalDateTime> {
     @Override
     public LocalDateTime deserialize(JsonParser jp, DeserializationContext ctxt)
             throws IOException, JsonProcessingException {
-        LocalDateTime result = Instant.ofEpochSecond(jp.readValueAs(Long.class)).atZone(ZoneId.systemDefault()).toLocalDateTime();
+        LocalDateTime result = Instant.ofEpochSecond(jp.readValueAs(Long.class)).atOffset(OffsetDateTime.now().getOffset()).toLocalDateTime();
         return result;
     }
 
